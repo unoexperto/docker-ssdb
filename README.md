@@ -24,8 +24,10 @@ Run with custom configuration
 ```sh
 $ docker run -d --name <your_container_name> \
 	-p <your_external_port>:8888 \
-	-v <data_folder_on_host>:/ssdb_data:rw \
-	-v <log_folder_on_host>:/ssdb_logs:rw \
-	[-v <location_of_config_file_on_host>:/usr/local/ssdb/ssdb.conf:ro] \
+	-v <data_folder_on_host>:/usr/local/ssdb/var/data:rw \
+	-v <meta_folder_on_host>:/usr/local/ssdb/var/meta:rw \
+	[-v <location_of_config_file_on_host>:/usr/local/ssdb/ssdb.conf] \
 	expert/ssdb
 ```
+
+By default logs are written to stdout
